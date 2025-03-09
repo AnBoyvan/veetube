@@ -1,0 +1,24 @@
+{
+	"actions": {
+		"cancel": "Cancel",
+		"change": "Change",
+		"comment": "Comment",
+		"create": "Create",
+		"delete": "Delete",
+		"exit_studio": "Exit studio",
+		"generate": "Generate",
+		"go_studio": "Go to studio",
+		"play_all": "Play all",
+		"remove": "Remove",
+		"reply": "Reply",
+		"restore": "Restore",
+		"revalidate": "Revalidate",
+		"save": "Save",
+		"select_files": "Select files",
+		"share": "Share",
+		"show_less": "Show less",
+		"show_more": "Show more",
+		"subscribe": "Subscribe",
+		"unsubscribe": "Unsubscribe"
+	}
+}
