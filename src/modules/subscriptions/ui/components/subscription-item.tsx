@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 
 import { UserAvatar } from '@/components/common/user-avatar';
+import { pluralize } from '@/i18n/pluralize';
 
 import { SubscriptionButton } from './subscription-button';
 
@@ -33,7 +34,7 @@ export const SubscriptionItem = ({
 							{Intl.NumberFormat(locale, {
 								notation: 'compact',
 							}).format(subscriberCount)}
-							{t('common.subscribers_pl')}
+							{t(pluralize(subscriberCount, 'subscribers'))}
 						</p>
 					</div>
 					<SubscriptionButton

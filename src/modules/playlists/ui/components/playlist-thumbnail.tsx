@@ -5,6 +5,7 @@ import { ListVideoIcon, PlayIcon } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 
 import { THUMBNAIL_FALLBACK } from '@/constants';
+import { pluralize } from '@/i18n/pluralize';
 import { cn } from '@/lib/utils';
 
 interface PlaylistThumbnailProps {
@@ -39,6 +40,7 @@ export const PlaylistThumbnail = ({
 						src={imageUrl || THUMBNAIL_FALLBACK}
 						alt={title}
 						fill
+						sizes="(min-width: 2820px) 381px, (min-width: 2200px) calc(12.67vw + 26px), (min-width: 1920px) calc(20vw - 70px), (min-width: 1540px) calc(25vw - 84px), (min-width: 1040px) calc(33.33vw - 109px), (min-width: 780px) calc(50vw - 155px), (min-width: 640px) calc(50vw - 27px), calc(100vw - 38px)"
 						className="w-full h-full object-cover"
 					/>
 					<div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -54,7 +56,7 @@ export const PlaylistThumbnail = ({
 			<div className="absolute bottom-2 right-2 px-1 py-0.5 rounded bg-black/80 text-white text-xs font-medium flex items-center gap-x-1">
 				<ListVideoIcon className="size-4" />
 				{compactViews}
-				{t('common.videos_pl')}
+				{t(pluralize(videoCount, 'videos'))}
 			</div>
 		</div>
 	);

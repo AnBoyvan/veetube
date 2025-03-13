@@ -1,7 +1,7 @@
 import { createTRPCRouter } from '@/trpc/init';
 
-import { create } from './procedures/create';
+import { createOrUdate } from './procedures/createOrUpdate';
 
 export const videoViewsRouter = createTRPCRouter({
-	create,
+	createOrUdate,
 });

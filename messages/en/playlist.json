@@ -1,0 +1,16 @@
+{
+	"playlist": {
+		"all": "All playlists",
+		"create_success": "Playlist created",
+		"create_title": "Create a new playlist",
+		"description_default": "Videos you’ve added to this playlist",
+		"description_placeholder": "Provide a short description for your playlist",
+		"name_placeholder": "Enter playlist title",
+		"page_description": "Collections you have created",
+		"remove_confirm": "Delete this playlist?",
+		"remove_success": "Playlist removed",
+		"update_success": "Playlist updated",
+		"update_title": "Edit playlist",
+		"view": "View full playlist"
+	}
+}

@@ -17,7 +17,7 @@ export const PlaylistInfo = ({ data }: PlaylistInfoProps) => {
 				</h3>
 				<p className="text-sm text-muted-foreground">{t('common.playlist')}</p>
 				<p className="text-sm text-muted-foreground font-semibold hover:text-primary transition">
-					{t('video.playlists_view')}
+					{t('playlist.view')}
 				</p>
 			</div>
 		</div>

@@ -16,7 +16,7 @@ export const create = protectedProcedure.mutation(async ({ ctx }) => {
 				},
 			],
 		},
-		cors_origin: '*', // TODO: in prod set to url
+		cors_origin: '*',
 	});
 
 	const [video] = await db

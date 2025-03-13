@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { LocaleSwitcher } from '@/components/common/locale-switcher';
+import { ThemeSwitcher } from '@/components/common/theme-switcher';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { AuthButton } from '@/modules/auth/ui/components/auth-button';
 
@@ -23,6 +25,10 @@ export const HomeNavbar = () => {
 					<SearchInput />
 				</div>
 				<div className="flex-shrink-0 flex items-center gap-4">
+					<div className="hidden md:flex items-center gap-x-1">
+						<LocaleSwitcher />
+						<ThemeSwitcher />
+					</div>
 					<AuthButton />
 				</div>
 			</div>

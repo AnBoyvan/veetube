@@ -1,7 +1,5 @@
 import { useClerk } from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
 import { useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
 import { toast } from 'sonner';
 
 import { trpc } from '@/trpc/client';
@@ -18,13 +16,12 @@ export const useSubscription = ({
 	fromVideoId,
 }: UseSubscriptionProps) => {
 	const t = useTranslations();
-	const { theme } = useTheme();
 	const clerk = useClerk();
 	const utils = trpc.useUtils();
 
 	const subscribe = trpc.subscriptions.create.useMutation({
 		onSuccess: () => {
-			toast.success(t('video.subscribed_success'));
+			toast.success(t('user.subscribe_success'));
 			utils.videos.getManySubscribed.invalidate();
 			utils.users.getOne.invalidate({ id: userId });
 			utils.subscriptions.getMany.invalidate();
@@ -37,18 +34,14 @@ export const useSubscription = ({
 			toast.error(t('general.smth_wrong'));
 
 			if (error.data?.code === 'UNAUTHORIZED') {
-				clerk.openSignIn({
-					appearance: {
-						baseTheme: theme === 'dark' ? dark : undefined,
-					},
-				});
+				clerk.openSignIn();
 			}
 		},
 	});
 
 	const unsubscribe = trpc.subscriptions.remove.useMutation({
 		onSuccess: () => {
-			toast.success(t('video.unsubscribed_success'));
+			toast.success(t('user.unsubscribe_success'));
 			utils.videos.getManySubscribed.invalidate();
 			utils.users.getOne.invalidate({ id: userId });
 			utils.subscriptions.getMany.invalidate();
@@ -61,11 +54,7 @@ export const useSubscription = ({
 			toast.error(t('general.smth_wrong'));
 
 			if (error.data?.code === 'UNAUTHORIZED') {
-				clerk.openSignIn({
-					appearance: {
-						baseTheme: theme === 'dark' ? dark : undefined,
-					},
-				});
+				clerk.openSignIn();
 			}
 		},
 	});

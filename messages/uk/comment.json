@@ -1,0 +1,9 @@
+{
+	"comment": {
+		"add_success": "Коментар додано",
+		"comment_placeholder": "Додайте коментар...",
+		"remove_success": "Коментар видалено",
+		"reply_placeholder": "Відповісти на коментар...",
+		"show_replies": "Показати більше відповідей"
+	}
+}

@@ -10,7 +10,7 @@ export const StudioView = () => {
 			<div className="px-4">
 				<h1 className="text-2xl font-bold">{t('common.channel_content')}</h1>
 				<p className="text-xs text-muted-foreground">
-					{t('video.manage_content')}
+					{t('user.manage_content')}
 				</p>
 			</div>
 			<VideosSection />

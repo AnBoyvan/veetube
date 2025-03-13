@@ -1,22 +1,14 @@
 import { useClerk, useUser } from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { UserAvatar } from '@/components/common/user-avatar';
+import { TextareaField } from '@/components/form/textarea-field';
 import { Button } from '@/components/ui/button';
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormMessage,
-} from '@/components/ui/form';
-import { Textarea } from '@/components/ui/textarea';
+import { Form } from '@/components/ui/form';
 import { USER_FALLBACK } from '@/constants';
 import { commentInsertSchema } from '@/db/schema';
 import { trpc } from '@/trpc/client';
@@ -39,7 +31,6 @@ export const CommentForm = ({
 	const t = useTranslations();
 	const { user } = useUser();
 	const clerk = useClerk();
-	const { theme } = useTheme();
 	const utils = trpc.useUtils();
 
 	const create = trpc.comments.create.useMutation({
@@ -49,16 +40,12 @@ export const CommentForm = ({
 				utils.comments.getMany.invalidate({ videoId, parentId });
 			}
 			form.reset();
-			toast.success(t('video.comment_added'));
+			toast.success(t('comment.add_success'));
 			onSuccess?.();
 		},
 		onError: error => {
 			if (error.data?.code === 'UNAUTHORIZED') {
-				clerk.openSignIn({
-					appearance: {
-						baseTheme: theme === 'dark' ? dark : undefined,
-					},
-				});
+				clerk.openSignIn();
 			}
 		},
 	});
@@ -92,25 +79,15 @@ export const CommentForm = ({
 					name={user?.username || 'User'}
 				/>
 				<div className="flex-1">
-					<FormField
+					<TextareaField
 						name="value"
 						control={form.control}
-						render={({ field }) => (
-							<FormItem>
-								<FormControl>
-									<Textarea
-										{...field}
-										placeholder={t(
-											variant === 'reply'
-												? 'video.reply_placeholder'
-												: 'video.comment_placeholder',
-										)}
-										className="resize-none bg-transparent overflow-hidden min-h-0"
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
+						placeholder={t(
+							variant === 'reply'
+								? 'comment.reply_placeholder'
+								: 'comment.comment_placeholder',
 						)}
+						className="resize-none bg-transparent overflow-hidden min-h-0"
 					/>
 					<div className="flex justify-end gap-2 mt-2">
 						{onCancel && (

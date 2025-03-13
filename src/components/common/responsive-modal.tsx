@@ -30,7 +30,7 @@ export const ResponsiveModal = ({
 	if (isMobile) {
 		return (
 			<Drawer open={open} onOpenChange={onOpenChange}>
-				<DrawerContent aria-describedby={undefined}>
+				<DrawerContent aria-describedby={undefined} className="px-4 pb-4">
 					<DrawerHeader>
 						<DrawerTitle>{title}</DrawerTitle>
 					</DrawerHeader>

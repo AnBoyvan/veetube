@@ -5,16 +5,9 @@ import { toast } from 'sonner';
 import { z } from 'zod';
 
 import { ResponsiveModal } from '@/components/common/responsive-modal';
+import { TextareaField } from '@/components/form/textarea-field';
 import { Button } from '@/components/ui/button';
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from '@/components/ui/form';
-import { Textarea } from '@/components/ui/textarea';
+import { Form } from '@/components/ui/form';
 import { trpc } from '@/trpc/client';
 
 interface ThumbnailGenerateModal {
@@ -65,32 +58,23 @@ export const ThumbnailGenerateModal = ({
 		<ResponsiveModal
 			open={open}
 			onOpenChange={onOpenChange}
-			title={t('video.upload_thumbnail')}
+			title={t('video.thumbnail_upload')}
 		>
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
 					className="flex flex-col gap-4"
 				>
-					<FormField
+					<TextareaField
 						control={form.control}
 						name="prompt"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>{t('common.prompt')}</FormLabel>
-								<FormControl>
-									<Textarea
-										{...field}
-										rows={5}
-										cols={30}
-										placeholder={t('video.prompt_placeholder')}
-										className="resize-none"
-									/>
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
+						label={t('common.prompt')}
+						rows={5}
+						cols={30}
+						placeholder={t('video.prompt_placeholder')}
+						className="resize-none"
 					/>
+
 					<div className="flex justify-end">
 						<Button type="submit" disabled={generateThumbnail.isPending}>
 							{t('actions.generate')}

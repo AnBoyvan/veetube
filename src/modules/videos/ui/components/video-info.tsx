@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { formatDistanceToNow } from 'date-fns';
 import { useLocale, useTranslations } from 'next-intl';
 
 import { UserAvatar } from '@/components/common/user-avatar';
-import { Locale, userLocale } from '@/i18n/config';
+import { pluralize } from '@/i18n/pluralize';
 import { UserInfo } from '@/modules/users/ui/components/user-info';
 
 import { VideoGetManyOutput } from '../../types';
@@ -32,13 +31,6 @@ export const VideoInfo = ({ data, onRemove }: VideoInfoProps) => {
 		}).format(data.likeCount);
 	}, [data.likeCount, locale]);
 
-	const compactDate = useMemo(() => {
-		return formatDistanceToNow(data.createdAt, {
-			addSuffix: true,
-			locale: userLocale[locale as Locale],
-		});
-	}, [data.createdAt, locale]);
-
 	return (
 		<div className="flex gap-3">
 			<Link prefetch href={`/users/${data.user.id}`}>
@@ -60,10 +52,10 @@ export const VideoInfo = ({ data, onRemove }: VideoInfoProps) => {
 				<Link prefetch href={`/videos/${data.id}`}>
 					<p className="text-sm text-muted-foreground line-clamp-1">
 						{compactViews}
-						{t('common.views_pl')}
+						{t(pluralize(data.viewCount, 'views'))}
 						&nbsp;&bull;&nbsp;
 						{compactLikes}
-						{t('common.likes_pl')}
+						{t(pluralize(data.likeCount, 'likes'))}
 					</p>
 				</Link>
 			</div>

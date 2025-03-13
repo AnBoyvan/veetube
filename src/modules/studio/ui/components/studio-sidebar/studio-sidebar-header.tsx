@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useUser } from '@clerk/nextjs';
 import { useTranslations } from 'next-intl';
 
+import { LocaleSwitcher } from '@/components/common/locale-switcher';
+import { ThemeSwitcher } from '@/components/common/theme-switcher';
 import { UserAvatar } from '@/components/common/user-avatar';
 import {
 	SidebarHeader,
@@ -53,7 +55,7 @@ export const StudioSidebarHeader = () => {
 	}
 
 	return (
-		<SidebarHeader className="flex items-center justify-center pb-4">
+		<SidebarHeader className="relative flex items-center justify-center pb-4">
 			<Link prefetch href="/users/current">
 				<UserAvatar
 					imageUrl={user.imageUrl}
@@ -64,6 +66,12 @@ export const StudioSidebarHeader = () => {
 			<div className="flex flex-col items-center mt-2 gap-y-1">
 				<p className="text-sm font-medium">{t('user.your_profile')}</p>
 				<p className="text-xs text-muted-foreground">{user.fullName}</p>
+			</div>
+			<div className="md:hidden absolute left-1 top-1">
+				<LocaleSwitcher />
+			</div>
+			<div className="md:hidden absolute right-1 top-1">
+				<ThemeSwitcher />
 			</div>
 		</SidebarHeader>
 	);

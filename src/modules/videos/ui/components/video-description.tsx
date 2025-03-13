@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
+import { pluralize } from '@/i18n/pluralize';
 import { cn } from '@/lib/utils';
 
 interface VideoDescriptionProps {
+	viewCount: number;
 	compactViews: string;
 	expandedViews: string;
 	compactDate: string;
@@ -14,6 +16,7 @@ interface VideoDescriptionProps {
 }
 
 export const VideoDescription = ({
+	viewCount,
 	compactViews,
 	expandedViews,
 	compactDate,
@@ -32,7 +35,7 @@ export const VideoDescription = ({
 			<div className="flex gap-2 text-sm mb-2">
 				<span className="font-medium">
 					{isExpanded ? expandedViews : compactViews}
-					{t('common.views_pl')}
+					{t(pluralize(viewCount, 'videos'))}
 				</span>
 				<span className="font-medium">
 					{isExpanded ? expandedDate : compactDate}

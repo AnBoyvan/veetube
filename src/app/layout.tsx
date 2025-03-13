@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { Amarante, Inter } from 'next/font/google';
 
-import { enUS, ukUA } from '@clerk/localizations';
+import { enUS } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
 import { cn } from '@/lib/utils';
+import { ukUA } from '@/modules/auth/localization/uk-UA';
+import '@/styles/clerk.css';
 
 import favicon from '../../public/favicon.ico';
 import openGraphImage from '../../public/opengraph-image.png';

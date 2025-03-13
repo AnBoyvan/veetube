@@ -23,9 +23,9 @@ export const PlaylistsView = () => {
 			/>
 			<div className="flex justify-between items-center">
 				<div>
-					<h1 className="text-2xl font-bold">{t('video.playlists_all')}</h1>
+					<h1 className="text-2xl font-bold">{t('playlist.all')}</h1>
 					<p className="text-xs text-muted-foreground">
-						{t('video.playlists_created')}
+						{t('playlist.page_description')}
 					</p>
 				</div>
 				<Button

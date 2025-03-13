@@ -49,7 +49,7 @@ export const CommentReplies = ({ parentId, videoId }: CommentRepliesProps) => {
 						onClick={() => fetchNextPage()}
 					>
 						<CornerDownRightIcon />
-						{t('video.show_replies')}
+						{t('comment.show_replies')}
 					</Button>
 				)}
 			</div>

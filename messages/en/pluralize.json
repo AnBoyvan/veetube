@@ -1,0 +1,34 @@
+{
+	"pluralize": {
+		"comments": {
+			"one": " comment",
+			"few": " comments",
+			"many": " comments"
+		},
+		"likes": {
+			"one": " like",
+			"few": " likes",
+			"many": " likes"
+		},
+		"subscribers": {
+			"one": " subscriber",
+			"few": " subscribers",
+			"many": " subscribers"
+		},
+		"videos": {
+			"one": " video",
+			"few": " videos",
+			"many": " videos"
+		},
+		"views": {
+			"one": " view",
+			"few": " views",
+			"many": " views"
+		},
+		"replies": {
+			"one": " reply",
+			"few": " replies",
+			"many": " replies"
+		}
+	}
+}

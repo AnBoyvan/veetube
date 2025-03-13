@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import { UserAvatar } from '@/components/common/user-avatar';
 import { Button } from '@/components/ui/button';
+import { pluralize } from '@/i18n/pluralize';
 import { useSubscription } from '@/modules/subscriptions/hooks/use-subscription';
 import { SubscriptionButton } from '@/modules/subscriptions/ui/components/subscription-button';
 import { UserInfo } from '@/modules/users/ui/components/user-info';
@@ -33,7 +34,8 @@ export const VideoOwner = ({ user, videoId }: VideoOwnerProps) => {
 					<div className="flex flex-col gap-1 min-w-0">
 						<UserInfo size="lg" name={user.name} />
 						<span className="text-sm text-muted-foreground line-clamp-1">
-							{t('common.subscribers')}: {user.subscriberCount}
+							{user.subscriberCount}
+							{t(pluralize(user.subscriberCount, 'subscribers'))}
 						</span>
 					</div>
 				</div>

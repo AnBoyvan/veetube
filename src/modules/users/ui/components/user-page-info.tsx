@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import { UserAvatar } from '@/components/common/user-avatar';
 import { Button } from '@/components/ui/button';
+import { pluralize } from '@/i18n/pluralize';
 import { cn } from '@/lib/utils';
 import { useSubscription } from '@/modules/subscriptions/hooks/use-subscription';
 import { SubscriptionButton } from '@/modules/subscriptions/ui/components/subscription-button';
@@ -44,12 +45,12 @@ export const UserPageInfo = ({ user }: UserPageInfoProps) => {
 						<div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
 							<span>
 								{user.subscriberCount}
-								{t('common.subscribers_pl')}
+								{t(pluralize(user.subscriberCount, 'subscribers'))}
 							</span>
 							<span>&bull;</span>
 							<span>
 								{user.videoCount}
-								{t('common.videos_pl')}
+								{t(pluralize(user.videoCount, 'videos'))}
 							</span>
 						</div>
 					</div>
@@ -93,12 +94,12 @@ export const UserPageInfo = ({ user }: UserPageInfoProps) => {
 					<div className="flex items-center gap-1 text-sm text-muted-foreground mt-3">
 						<span>
 							{user.subscriberCount}
-							{t('common.subscribers_pl')}
+							{t(pluralize(user.subscriberCount, 'subscribers'))}
 						</span>
 						<span>&bull;</span>
 						<span>
 							{user.videoCount}
-							{t('common.videos_pl')}
+							{t(pluralize(user.videoCount, 'videos'))}
 						</span>
 					</div>
 					{user.clerkId === clerkUserId ? (

@@ -27,7 +27,7 @@ export const SubscriptionsSectionSuspense = () => {
 
 	const unsubscribe = trpc.subscriptions.remove.useMutation({
 		onSuccess: data => {
-			toast.success(t('video.unsubscribed_success'));
+			toast.success(t('user.unsubscribe_success'));
 			utils.videos.getManySubscribed.invalidate();
 			utils.users.getOne.invalidate({ id: data.creatorId });
 			utils.subscriptions.getMany.invalidate();

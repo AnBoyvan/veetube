@@ -42,7 +42,7 @@ export const personalSectionConfig: PersonalSectionItem[] = [
 		auth: true,
 	},
 	{
-		title: 'video.playlists_all',
+		title: 'playlist.all',
 		url: '/playlists',
 		icon: ListVideoIcon,
 		auth: true,

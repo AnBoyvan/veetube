@@ -10,6 +10,7 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from '@/components/ui/tooltip';
+import { pluralize } from '@/i18n/pluralize';
 import { cn } from '@/lib/utils';
 import { UserInfo } from '@/modules/users/ui/components/user-info';
 
@@ -99,10 +100,10 @@ export const VideoRowCard = ({
 						{size === 'default' && (
 							<p className="text-xs text-muted-foreground mt-1">
 								{compactViews}
-								{t('common.views_pl')}
+								{t(pluralize(data.viewCount, 'views'))}
 								&nbsp;&bull;&nbsp;
 								{compactLikes}
-								{t('common.likes_pl')}
+								{t(pluralize(data.likeCount, 'likes'))}
 							</p>
 						)}
 						{size === 'default' && (
@@ -139,10 +140,10 @@ export const VideoRowCard = ({
 						{size === 'compact' && (
 							<p className="text-xs text-muted-foreground mt-1 text-nowrap truncate">
 								{compactViews}
-								{t('common.views_pl')}
+								{t(pluralize(data.viewCount, 'views'))}
 								&nbsp;&bull;&nbsp;
 								{compactLikes}
-								{t('common.likes_pl')}
+								{t(pluralize(data.likeCount, 'likes'))}
 							</p>
 						)}
 					</Link>

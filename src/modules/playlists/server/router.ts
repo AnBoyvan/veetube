@@ -10,6 +10,7 @@ import { getOne } from './procedures/get-one';
 import { getVideos } from './procedures/get-videos';
 import { remove } from './procedures/remove';
 import { removeVideo } from './procedures/remove-video';
+import { update } from './procedures/update';
 
 export const playlistsRouter = createTRPCRouter({
 	create,
@@ -18,6 +19,7 @@ export const playlistsRouter = createTRPCRouter({
 	getMany,
 	getManyForVideo,
 	getOne,
+	update,
 	remove,
 	addVideo,
 	removeVideo,

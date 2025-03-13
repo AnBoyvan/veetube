@@ -19,7 +19,7 @@ export const StudioUploadModal = () => {
 
 	const create = trpc.videos.create.useMutation({
 		onSuccess: () => {
-			toast.success(t('video.created'));
+			toast.success(t('video.create_success'));
 			utils.studio.getMany.invalidate();
 		},
 		onError: () => {

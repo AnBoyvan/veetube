@@ -3,6 +3,7 @@ import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
 import { eq } from 'drizzle-orm';
 import { Webhook } from 'svix';
+import { UTApi } from 'uploadthing/server';
 
 import { db } from '@/db';
 import { users } from '@/db/schema';
@@ -68,16 +69,35 @@ export async function POST(req: Request) {
 			return new Response('Missing user ID', { status: 400 });
 		}
 
+		const [existingUser] = await db
+			.select()
+			.from(users)
+			.where(eq(users.clerkId, data.id));
+
+		if (!existingUser) {
+			return new Response('Missing user', { status: 400 });
+		}
+
+		if (existingUser.bannerKey) {
+			const utapi = new UTApi();
+			await utapi.deleteFiles(existingUser.bannerKey);
+		}
+
 		await db.delete(users).where(eq(users.clerkId, data.id));
 	}
 
 	if (evt.type === 'user.updated') {
 		const { data } = evt;
 
+		const userName =
+			(data.first_name && data.last_name
+				? `${data.first_name} ${data.last_name}`
+				: data.first_name || data.last_name) || 'User';
+
 		await db
 			.update(users)
 			.set({
-				name: `${data.first_name} ${data.last_name}`,
+				name: userName,
 				imageUrl: data.image_url,
 			})
 			.where(eq(users.clerkId, data.id));

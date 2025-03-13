@@ -1,7 +1,5 @@
 import { useClerk } from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
 import { ThumbsDownIcon, ThumbsUpIcon } from 'lucide-react';
-import { useTheme } from 'next-themes';
 
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -25,7 +23,6 @@ export const VideoReactions = ({
 }: VideoReactionsProps) => {
 	const clerk = useClerk();
 	const utils = trpc.useUtils();
-	const { theme } = useTheme();
 
 	const like = trpc.videoReactions.like.useMutation({
 		onSuccess: () => {
@@ -34,11 +31,7 @@ export const VideoReactions = ({
 		},
 		onError: error => {
 			if (error.data?.code === 'UNAUTHORIZED') {
-				clerk.openSignIn({
-					appearance: {
-						baseTheme: theme === 'dark' ? dark : undefined,
-					},
-				});
+				clerk.openSignIn();
 			}
 		},
 	});
@@ -50,11 +43,7 @@ export const VideoReactions = ({
 		},
 		onError: error => {
 			if (error.data?.code === 'UNAUTHORIZED') {
-				clerk.openSignIn({
-					appearance: {
-						baseTheme: theme === 'dark' ? dark : undefined,
-					},
-				});
+				clerk.openSignIn();
 			}
 		},
 	});

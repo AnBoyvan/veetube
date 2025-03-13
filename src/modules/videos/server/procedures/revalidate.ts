@@ -51,6 +51,7 @@ export const revalidate = protectedProcedure
 				muxPlaybackId: playbackId,
 				muxAssetId: asset.id,
 				duration,
+				updatedAt: new Date(),
 			})
 			.where(and(eq(videos.id, input.id), eq(videos.userId, userId)))
 			.returning();

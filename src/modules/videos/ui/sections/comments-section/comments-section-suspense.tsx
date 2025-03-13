@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 
 import { InfiniteScroll } from '@/components/common/infinite-scroll';
 import { DEFAULT_COMMENTS_LIMIT } from '@/constants';
+import { pluralize } from '@/i18n/pluralize';
 import { CommentForm } from '@/modules/comments/ui/components/comment-form';
 import { CommentItem } from '@/modules/comments/ui/components/comment-item';
 import { trpc } from '@/trpc/client';
@@ -29,7 +30,7 @@ export const CommentsSectionSuspense = ({
 			<div className="flex flex-col gap-6">
 				<h1 className="text-xl font-bold">
 					{comments.pages[0].totalCount}
-					{t('common.comments_pl')}
+					{t(pluralize(comments.pages[0].totalCount, 'comments'))}
 				</h1>
 				<CommentForm videoId={videoId} />
 				<div className="flex flex-col gap-4 mt-2">
