@@ -1,0 +1,29 @@
+{
+	"actions": {
+		"back_home": "Back to Home",
+		"cancel": "Cancel",
+		"change": "Change",
+		"comment": "Comment",
+		"confirm": "Confirm",
+		"create": "Create",
+		"delete": "Delete",
+		"edit": "Edit",
+		"exit_studio": "Exit studio",
+		"generate": "Generate",
+		"go_studio": "Go to studio",
+		"play_all": "Play all",
+		"remove": "Remove",
+		"reply": "Reply",
+		"restore": "Restore",
+		"revalidate": "Revalidate",
+		"save": "Save",
+		"select_files": "Select files",
+		"share": "Share",
+		"show_less": "Show less",
+		"show_more": "Show more",
+		"subscribe": "Subscribe",
+		"unsubscribe": "Unsubscribe",
+		"upload": "Upload",
+		"upload_choose": "Choose a file or drag and drop"
+	}
+}

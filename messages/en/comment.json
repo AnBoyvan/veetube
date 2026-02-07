@@ -1,0 +1,9 @@
+{
+	"comment": {
+		"add_success": "Comment added",
+		"comment_placeholder": "Add a comment...",
+		"remove_success": "Comment deleted",
+		"reply_placeholder": "Reply to this comment...",
+		"show_replies": "Show more replies"
+	}
+}

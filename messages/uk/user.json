@@ -1,0 +1,14 @@
+{
+	"user": {
+		"banner_size": "Зображення (до 8МБ)",
+		"manage_content": "Керуйте матеріалами та відео Вашого каналу",
+		"manage_subscriptions": "Перегляньте та керуйте всіма Вашими підписками",
+		"my_profile": "Мій профіль",
+		"sign_in": "Увійти",
+		"subscribe_success": "Ви підписалися!",
+		"unsubscribe_success": "Підписку скасовано",
+		"upload_banner": "Завантажити банер",
+		"your_channel": "Ваш канал",
+		"your_profile": "Ваш профіль"
+	}
+}

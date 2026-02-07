@@ -1,0 +1,14 @@
+{
+	"user": {
+		"banner_size": "Image(up to 8MB)",
+		"manage_content": "Manage your channel content and videos",
+		"manage_subscriptions": "View and manage all your subscriptions",
+		"my_profile": "My profile",
+		"sign_in": "Sign In",
+		"subscribe_success": "You’ve subscribed!",
+		"unsubscribe_success": "You’ve unsubscribed",
+		"upload_banner": "Upload a banner",
+		"your_channel": "Your channel",
+		"your_profile": "Your profile"
+	}
+}

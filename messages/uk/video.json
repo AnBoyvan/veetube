@@ -1,0 +1,47 @@
+{
+	"video": {
+		"add_to_playlist": "Додати до плейлиста",
+		"category_placeholder": "Оберіть категорію",
+		"create_success": "Відео створено",
+		"description_placeholder": "Додайте опис до вашого відео",
+		"details": "Інформація про відео",
+		"details_manage": "Редагуйте інформацію про відео",
+		"drag_to_upload": "Перетягніть файли відео для завантаження",
+		"edit": "Редагувати",
+		"from_description": "З опису відео",
+		"history_videos": "Переглянуті відео",
+		"liked": "Відео, які сподобались",
+		"link": "Посилання на відео",
+		"most_popular": "Найпопулярніші відео на даний момент",
+		"processed": "Це відео ще обробляється",
+		"prompt_placeholder": "Опишіть вашу ідею для обкладинки",
+		"remain_private": "Відео залишатиметься приватним, доки ви його не опублікуєте",
+		"remove_confirm": "Видалити це відео?",
+		"remove_error": "Не вдалося видалити відео",
+		"remove_success": "Відео видалено",
+		"status": "Статус відео",
+		"statuses": {
+			"deleted": "Видалено",
+			"errored": "Помилка",
+			"none": "Немає",
+			"preparing": "Готується",
+			"ready": "Готово",
+			"waiting": "Очікує"
+		},
+		"subscribed_videos": "Відео з каналів, на які Ви підписані",
+		"subtitles_status": "Статус субтитрів",
+		"title_placeholder": "Додайте назву до вашого відео",
+		"thumbnail_size": "Зображення (до 4МБ)",
+		"thumbnail_upload": "Завантажте обкладинку",
+		"update_error": "Не вдалося оновити відео",
+		"update_success": "Відео оновлено",
+		"upload": "Завантажити відео",
+		"video_added": "Відео додано до плейлиста",
+		"video_removed": "Відео видалено з плейлиста",
+		"visibility": {
+			"private": "Приватне",
+			"public": "Публічне"
+		},
+		"visibility_placeholder": "Виберіть видимість"
+	}
+}

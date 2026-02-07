@@ -1,0 +1,16 @@
+{
+	"playlist": {
+		"all": "Всі плейлисти",
+		"create_success": "Плейлист створено",
+		"create_title": "Створіть новий плейлист",
+		"description_default": "Відео, які ви додали до цього плейлиста",
+		"description_placeholder": "Додайте короткий опис плейлиста",
+		"name_placeholder": "Введіть назву плейлиста",
+		"page_description": "Списки відтворення, які ви створили",
+		"remove_confirm": "Видалити цей плейлист?",
+		"remove_success": "Плейлист видалено",
+		"update_success": "Плейлист оновлено",
+		"update_title": "Змінити плейлист",
+		"view": "Переглянути весь плейлист"
+	}
+}

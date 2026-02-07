@@ -1,0 +1,47 @@
+{
+	"video": {
+		"add_to_playlist": "Add to playlist",
+		"category_placeholder": "Select a category",
+		"create_success": "Video created",
+		"description_placeholder": "Add a description to your video",
+		"details": "Video details",
+		"details_manage": "Manage your video details",
+		"drag_to_upload": "Drag and drop video files to upload",
+		"edit": "Edit video",
+		"from_description": "From the video description",
+		"history_videos": "Videos you have watched",
+		"liked": "Liked videos",
+		"link": "Video link",
+		"most_popular": "Most popular videos at the moment",
+		"processed": "This video is still being processed",
+		"prompt_placeholder": "Describe your thumbnail idea",
+		"remain_private": "Your video will remain private until you publish it",
+		"remove_confirm": "Delete this video?",
+		"remove_error": "Failed to remove video",
+		"remove_success": "Video removed",
+		"status": "Video status",
+		"statuses": {
+			"deleted": "Deleted",
+			"errored": "Errored",
+			"none": "None",
+			"preparing": "Preparing",
+			"ready": "Ready",
+			"waiting": "Waiting"
+		},
+		"subtitles_status": "Subtitles status",
+		"subscribed_videos": "Videos from the creators you follow",
+		"title_placeholder": "Add a title to your video",
+		"thumbnail_size": "Image(up to 4MB)",
+		"thumbnail_upload": "Upload a thumbnail",
+		"update_error": "Failed to update video",
+		"update_success": "Video updated",
+		"upload": "Upload a video",
+		"video_added": "Video added to playlist",
+		"video_removed": "Video removed from playlist",
+		"visibility": {
+			"private": "Private",
+			"public": "Public"
+		},
+		"visibility_placeholder": "Select visibility"
+	}
+}
