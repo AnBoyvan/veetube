@@ -1,5 +1,6 @@
 import { cache } from 'react';
 
+import { auth } from '@clerk/nextjs/server';
 import { initTRPC, TRPCError } from '@trpc/server';
 import { eq } from 'drizzle-orm';
 import superjson from 'superjson';

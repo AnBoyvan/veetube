@@ -1,9 +1,9 @@
 import { and, desc, eq, getTableColumns, lt, or } from 'drizzle-orm';
 import { z } from 'zod';
 
-import { MAX_SUBSCRIPTIONS_LIMIT } from '@/constants';
 import { db } from '@/db';
 import { subscriptions, users } from '@/db/schema';
+import { MAX_SUBSCRIPTIONS_LIMIT } from '@/lib/constants';
 import { protectedProcedure } from '@/trpc/init';
 
 export const getMany = protectedProcedure

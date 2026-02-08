@@ -3,6 +3,7 @@
 		"ai_generated": "AI-generated",
 		"all": "All",
 		"bg_job_started": "Background job started",
+		"categories_error": "Failed to load categories",
 		"category": "Category",
 		"channel_content": "Channel content",
 		"checking": "Checking...",

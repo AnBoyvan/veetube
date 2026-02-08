@@ -17,6 +17,7 @@
 		},
 		"access_denied": "Access denied",
 		"page_not_found": "Page not found",
-		"smth_wrong": "Something went wrong"
+		"smth_wrong": "Something went wrong",
+		"try_later": "Please try again later"
 	}
 }

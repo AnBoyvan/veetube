@@ -1,3 +1,6 @@
+import { HomeView } from '@/features/home/ui/views/home-view';
+import { HydrateClient, prefetch, trpc } from '@/trpc/server';
+
 interface HomePageProps {
 	searchParams: Promise<{
 		categoryId?: string;
@@ -7,7 +10,13 @@ interface HomePageProps {
 const HomePage = async ({ searchParams }: HomePageProps) => {
 	const { categoryId } = await searchParams;
 
-	return <div>HomePage</div>;
+	prefetch(trpc.categories.getMany.queryOptions());
+
+	return (
+		<HydrateClient>
+			<HomeView categoryId={categoryId} />
+		</HydrateClient>
+	);
 };
 
 export default HomePage;
