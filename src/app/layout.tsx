@@ -7,12 +7,13 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
 import { cn } from '@/lib/utils/cn';
-import { ukUA } from '@/modules/auth/localization/uk-UA';
-import '@/styles/clerk.css';
 
 import favicon from '../../public/favicon.ico';
 import openGraphImage from '../../public/opengraph-image.png';
 import './globals.css';
+
+import { ukUA } from '@/features/auth/localization/uk-UA';
+
 import { Providers } from './providers';
 
 const inter = Inter({
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
