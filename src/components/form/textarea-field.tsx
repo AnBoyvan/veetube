@@ -31,8 +31,6 @@ export const TextareaField = ({
 	disabled,
 	className,
 	generateAction,
-	cols,
-	rows,
 }: TextareaFieldProps) => {
 	return (
 		<FormField
@@ -52,8 +50,6 @@ export const TextareaField = ({
 						<Textarea
 							{...field}
 							value={field.value ?? ''}
-							rows={rows}
-							cols={cols}
 							disabled={disabled}
 							placeholder={placeholder}
 							className={cn(className)}

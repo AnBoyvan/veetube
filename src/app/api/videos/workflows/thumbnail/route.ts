@@ -32,14 +32,14 @@ export const { POST } = serve(async context => {
 	const { body } = await context.call<{ data: { url: string }[] }>(
 		'generate-thumbnail',
 		{
-			url: process.env.OPENAI_API_IMAGE_URL!,
+			url: process.env.OPENAI_API_IMAGE_URL,
 			method: 'POST',
-			body: {
+			body: JSON.stringify({
 				prompt,
 				n: 1,
 				model: 'dall-e-3',
 				size: '1792x1024',
-			},
+			}),
 			headers: {
 				authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
 			},

@@ -5,7 +5,7 @@ import { db } from '@/db';
 import { videoViews } from '@/db/schema';
 import { protectedProcedure } from '@/trpc/init';
 
-export const createOrUdate = protectedProcedure
+export const createOrUpdate = protectedProcedure
 	.input(z.object({ videoId: z.uuid() }))
 	.mutation(async ({ ctx, input }) => {
 		const { id: userId } = ctx.user;

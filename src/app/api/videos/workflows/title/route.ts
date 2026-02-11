@@ -1,9 +1,9 @@
 import { serve } from '@upstash/workflow/nextjs';
 import { and, eq } from 'drizzle-orm';
 
-import { TITLE_SYSTEM_PROMPT } from '@/constants';
 import { db } from '@/db';
 import { videos } from '@/db/schema';
+import { TITLE_SYSTEM_PROMPT } from '@/features/videos/prompts/title-system-prompt';
 
 interface InputType {
 	userId: string;
@@ -12,6 +12,7 @@ interface InputType {
 
 export const { POST } = serve(async context => {
 	const input = context.requestPayload as InputType;
+
 	const { userId, videoId } = input;
 
 	const video = await context.run('get-video', async () => {
@@ -40,7 +41,7 @@ export const { POST } = serve(async context => {
 	});
 
 	const { body } = await context.api.openai.call('generate-title', {
-		token: process.env.OPENAI_API_KEY!,
+		token: process.env.OPENAI_API_KEY,
 		operation: 'chat.completions.create',
 		body: {
 			model: 'gpt-4o',

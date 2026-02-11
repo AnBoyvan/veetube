@@ -12,6 +12,8 @@
 		"history_videos": "Videos you have watched",
 		"liked": "Liked videos",
 		"link": "Video link",
+		"load_error": "Failed to load videos",
+		"load_one_error": "Failed to load video",
 		"most_popular": "Most popular videos at the moment",
 		"processed": "This video is still being processed",
 		"prompt_placeholder": "Describe your thumbnail idea",

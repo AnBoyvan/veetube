@@ -1,9 +1,9 @@
 import { serve } from '@upstash/workflow/nextjs';
 import { and, eq } from 'drizzle-orm';
 
-import { DESCRIPTION_SYSTEM_PROMPT } from '@/constants';
 import { db } from '@/db';
 import { videos } from '@/db/schema';
+import { DESCRIPTION_SYSTEM_PROMPT } from '@/features/videos/prompts/description-system-prompt';
 
 interface InputType {
 	userId: string;
