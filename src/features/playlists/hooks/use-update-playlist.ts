@@ -15,17 +15,17 @@ export const useUpdatePlaylist = () => {
 			onSuccess: async data => {
 				toast.success(t('playlist.update_success'));
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getOne.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getOne.queryKey({
 						id: data.id,
 					}),
-				);
+				});
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getMany.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getMany.infiniteQueryKey({
 						limit: DEFAULT_PLAYLISTS_LIMIT,
 					}),
-				);
+				});
 			},
 			onError: () => {
 				toast.error(t('general.smth_wrong'));

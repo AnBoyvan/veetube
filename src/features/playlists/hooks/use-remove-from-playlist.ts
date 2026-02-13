@@ -15,31 +15,31 @@ export const useRemoveFromPlaylist = () => {
 			onSuccess: async data => {
 				toast.success(t('video.video_removed'));
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getOne.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getOne.queryKey({
 						id: data.playlistId,
 					}),
-				);
+				});
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getVideos.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getVideos.infiniteQueryKey({
 						playlistId: data.playlistId,
 						limit: DEFAULT_VIDEOS_LIMIT,
 					}),
-				);
+				});
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getMany.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getMany.infiniteQueryKey({
 						limit: DEFAULT_PLAYLISTS_LIMIT,
 					}),
-				);
+				});
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getManyForVideo.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getManyForVideo.infiniteQueryKey({
 						videoId: data.videoId,
 						limit: DEFAULT_PLAYLISTS_LIMIT,
 					}),
-				);
+				});
 			},
 			onError: () => {
 				toast.error(t('general.smth_wrong'));

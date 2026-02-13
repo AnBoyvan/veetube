@@ -17,25 +17,28 @@ export const useLikeComment = ({ videoId, parentId }: UseLikeCommentProps) => {
 	return useMutation(
 		trpc.commentReactions.like.mutationOptions({
 			onSuccess: async () => {
-				await queryClient.invalidateQueries(
-					trpc.comments.getMany.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.comments.getMany.infiniteQueryKey({
 						videoId,
 						limit: DEFAULT_COMMENTS_LIMIT,
 					}),
-				);
+				});
+
 				if (parentId) {
-					trpc.comments.getMany.queryOptions({
-						videoId,
-						parentId: parentId,
-						limit: DEFAULT_COMMENTS_LIMIT,
+					await queryClient.invalidateQueries({
+						queryKey: trpc.comments.getMany.infiniteQueryKey({
+							videoId,
+							parentId,
+							limit: DEFAULT_COMMENTS_LIMIT,
+						}),
 					});
 				}
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getLiked.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getLiked.infiniteQueryKey({
 						limit: DEFAULT_VIDEOS_LIMIT,
 					}),
-				);
+				});
 			},
 			onError: error => {
 				if (error.data?.code === 'UNAUTHORIZED') {

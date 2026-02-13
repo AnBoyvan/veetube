@@ -14,9 +14,12 @@ export const useCreateVideo = () => {
 		trpc.videos.create.mutationOptions({
 			onSuccess: async () => {
 				toast.success(t('video.create_success'));
-				await queryClient.invalidateQueries(
-					trpc.studio.getMany.queryOptions({ limit: DEFAULT_VIDEOS_LIMIT }),
-				);
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.studio.getMany.queryKey({
+						limit: DEFAULT_VIDEOS_LIMIT,
+					}),
+				});
 			},
 			onError: () => {
 				toast.error(t('general.smth_wrong'));

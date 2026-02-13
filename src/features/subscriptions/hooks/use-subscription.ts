@@ -30,28 +30,30 @@ export const useSubscription = ({
 			onSuccess: async () => {
 				toast.success(t('user.subscribe_success'));
 
-				await queryClient.invalidateQueries(
-					trpc.videos.getManySubscribed.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.videos.getManySubscribed.infiniteQueryKey({
 						limit: DEFAULT_VIDEOS_LIMIT,
 					}),
-				);
-				await queryClient.invalidateQueries(
-					trpc.users.getOne.queryOptions({
+				});
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.users.getOne.queryKey({
 						id: userId,
 					}),
-				);
-				await queryClient.invalidateQueries(
-					trpc.subscriptions.getMany.queryOptions({
+				});
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.subscriptions.getMany.infiniteQueryKey({
 						limit: DEFAULT_SUBSCRIPTIONS_LIMIT,
 					}),
-				);
+				});
 
 				if (fromVideoId) {
-					await queryClient.invalidateQueries(
-						trpc.videos.getOne.queryOptions({
+					await queryClient.invalidateQueries({
+						queryKey: trpc.videos.getOne.queryKey({
 							id: fromVideoId,
 						}),
-					);
+					});
 				}
 			},
 			onError: error => {
@@ -67,28 +69,31 @@ export const useSubscription = ({
 		trpc.subscriptions.remove.mutationOptions({
 			onSuccess: async () => {
 				toast.success(t('user.unsubscribe_success'));
-				await queryClient.invalidateQueries(
-					trpc.videos.getManySubscribed.queryOptions({
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.videos.getManySubscribed.infiniteQueryKey({
 						limit: DEFAULT_VIDEOS_LIMIT,
 					}),
-				);
-				await queryClient.invalidateQueries(
-					trpc.users.getOne.queryOptions({
+				});
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.users.getOne.queryKey({
 						id: userId,
 					}),
-				);
-				await queryClient.invalidateQueries(
-					trpc.subscriptions.getMany.queryOptions({
+				});
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.subscriptions.getMany.infiniteQueryKey({
 						limit: DEFAULT_SUBSCRIPTIONS_LIMIT,
 					}),
-				);
+				});
 
 				if (fromVideoId) {
-					await queryClient.invalidateQueries(
-						trpc.videos.getOne.queryOptions({
+					await queryClient.invalidateQueries({
+						queryKey: trpc.videos.getOne.queryKey({
 							id: fromVideoId,
 						}),
-					);
+					});
 				}
 			},
 			onError: error => {

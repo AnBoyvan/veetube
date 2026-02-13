@@ -49,11 +49,7 @@ export const VideoFormInfo = ({
 					<div className="flex w-full flex-col gap-y-1">
 						<p className="text-muted-foreground text-xs">{t('video.link')}</p>
 						<div className="flex w-full items-center gap-x-2">
-							<Link
-								prefetch
-								href={`/videos/${videoId}`}
-								className="overflow-hidden"
-							>
+							<Link href={`/videos/${videoId}`} className="overflow-hidden">
 								<p className="line-clamp-1 text-focus text-sm">{fullUrl}</p>
 							</Link>
 							<Button

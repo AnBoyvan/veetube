@@ -13,13 +13,17 @@ export const useRevalidateVideo = () => {
 	return useMutation(
 		trpc.videos.revalidate.mutationOptions({
 			onSuccess: async data => {
-				await queryClient.invalidateQueries(
-					trpc.studio.getMany.queryOptions({ limit: DEFAULT_VIDEOS_LIMIT }),
-				);
-				await queryClient.invalidateQueries(
-					trpc.studio.getOne.queryOptions({ id: data.id }),
-				);
 				toast.success(t('video.update_success'));
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.studio.getMany.infiniteQueryKey({
+						limit: DEFAULT_VIDEOS_LIMIT,
+					}),
+				});
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.studio.getOne.queryKey({ id: data.id }),
+				});
 			},
 			onError: () => {
 				toast.error(t('video.update_error'));

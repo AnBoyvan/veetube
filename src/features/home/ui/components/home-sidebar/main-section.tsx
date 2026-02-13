@@ -69,11 +69,7 @@ export const MainSection = () => {
 									}
 								}}
 							>
-								<Link
-									prefetch
-									href={item.url}
-									className="flex items-center gap-4"
-								>
+								<Link href={item.url} className="flex items-center gap-4">
 									<item.icon />
 									<span className="text-sm">{t(item.title)}</span>
 								</Link>

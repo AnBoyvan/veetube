@@ -3,7 +3,15 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { DEFAULT_PLAYLISTS_LIMIT } from '@/lib/constants';
 import { useTRPC } from '@/trpc/client';
 
-export const usePlaylistsForVideo = (videoId: string) => {
+interface UsePlaylistsForVideoProps {
+	videoId: string;
+	enabled: boolean;
+}
+
+export const usePlaylistsForVideo = ({
+	videoId,
+	enabled,
+}: UsePlaylistsForVideoProps) => {
 	const trpc = useTRPC();
 
 	return useInfiniteQuery(
@@ -14,6 +22,7 @@ export const usePlaylistsForVideo = (videoId: string) => {
 			},
 			{
 				getNextPageParam: lastPage => lastPage.nextCursor,
+				enabled,
 			},
 		),
 	);

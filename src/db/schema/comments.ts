@@ -61,9 +61,9 @@ export const commentRelations = relations(comments, ({ one, many }) => ({
 		references: [comments.id],
 		relationName: 'comments_parent_id_fkey',
 	}),
-	// replies: many(comments, {
-	// 	relationName: 'comments_reply_id_fkey',
-	// }),
+	replies: many(comments, {
+		relationName: 'comments_parent_id_fkey',
+	}),
 }));
 
 export const commentInsertSchema = createInsertSchema(comments);

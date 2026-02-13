@@ -30,3 +30,7 @@ export const VideoPlayer = ({
 		/>
 	);
 };
+
+export const VideoPlayerSkeleton = () => {
+	return <div className="aspect-video rounded-xl bg-black" />;
+};

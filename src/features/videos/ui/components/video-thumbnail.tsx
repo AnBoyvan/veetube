@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { Skeleton } from '@/components/ui/skeleton';
 import { THUMBNAIL_FALLBACK } from '@/lib/constants';
 import { formatDuration } from '@/lib/utils/format-duration';
 
@@ -38,6 +39,14 @@ export const VideoThumbnail = ({
 			<div className="absolute right-2 bottom-2 rounded bg-black/80 px-1 py-0.5 font-medium text-white text-xs">
 				{formatDuration(duration)}
 			</div>
+		</div>
+	);
+};
+
+export const VideoThumbnailSkeleton = () => {
+	return (
+		<div className="relative aspect-video w-full overflow-hidden rounded-xl">
+			<Skeleton className="size-full" />
 		</div>
 	);
 };

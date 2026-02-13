@@ -12,14 +12,15 @@ export const useLikeVideo = () => {
 	return useMutation(
 		trpc.videoReactions.like.mutationOptions({
 			onSuccess: async data => {
-				await queryClient.invalidateQueries(
-					trpc.videos.getOne.queryOptions({ id: data.videoId }),
-				);
-				await queryClient.invalidateQueries(
-					trpc.playlists.getLiked.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.videos.getOne.queryKey({ id: data.videoId }),
+				});
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getLiked.infiniteQueryKey({
 						limit: DEFAULT_VIDEOS_LIMIT,
 					}),
-				);
+				});
 			},
 			onError: error => {
 				if (error.data?.code === 'UNAUTHORIZED') {

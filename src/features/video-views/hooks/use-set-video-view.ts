@@ -9,11 +9,11 @@ export const useSetVideoView = () => {
 	return useMutation(
 		trpc.videoViews.createOrUpdate.mutationOptions({
 			onSuccess: async data => {
-				await queryClient.invalidateQueries(
-					trpc.videos.getOne.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.videos.getOne.queryKey({
 						id: data.videoId,
 					}),
-				);
+				});
 			},
 		}),
 	);

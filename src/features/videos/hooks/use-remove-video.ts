@@ -16,10 +16,14 @@ export const useRemoveVideo = () => {
 	return useMutation(
 		trpc.videos.remove.mutationOptions({
 			onSuccess: async () => {
-				await queryClient.invalidateQueries(
-					trpc.studio.getMany.queryOptions({ limit: DEFAULT_VIDEOS_LIMIT }),
-				);
 				toast.success(t('video.remove_success'));
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.studio.getMany.infiniteQueryKey({
+						limit: DEFAULT_VIDEOS_LIMIT,
+					}),
+				});
+
 				router.push('/studio');
 			},
 			onError: () => {

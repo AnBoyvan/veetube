@@ -18,11 +18,11 @@ export const useRemovePlaylist = () => {
 			onSuccess: async () => {
 				toast.success(t('playlist.remove_success'));
 
-				await queryClient.invalidateQueries(
-					trpc.playlists.getMany.queryOptions({
+				await queryClient.invalidateQueries({
+					queryKey: trpc.playlists.getMany.infiniteQueryKey({
 						limit: DEFAULT_PLAYLISTS_LIMIT,
 					}),
-				);
+				});
 
 				router.push('/playlists');
 			},

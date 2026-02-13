@@ -16,19 +16,22 @@ export const useCreateComment = () => {
 		trpc.comments.create.mutationOptions({
 			onSuccess: async data => {
 				toast.success(t('comment.add_success'));
-				await queryClient.invalidateQueries(
-					trpc.comments.getMany.queryOptions({
+
+				await queryClient.invalidateQueries({
+					queryKey: trpc.comments.getMany.infiniteQueryKey({
 						videoId: data.videoId,
 						limit: DEFAULT_COMMENTS_LIMIT,
 					}),
-				);
+				});
+
 				if (data.parentId) {
-					await queryClient.invalidateQueries(
-						trpc.comments.getMany.queryOptions({
-							videoId: data.parentId,
+					await queryClient.invalidateQueries({
+						queryKey: trpc.comments.getMany.infiniteQueryKey({
+							videoId: data.videoId,
+							parentId: data.parentId,
 							limit: DEFAULT_COMMENTS_LIMIT,
 						}),
-					);
+					});
 				}
 			},
 			onError: error => {
