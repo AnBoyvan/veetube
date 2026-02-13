@@ -19,8 +19,9 @@ export const getManyForVideo = protectedProcedure
 			limit: z.number().min(1).max(MAX_PLAYLISTS_LIMIT),
 		}),
 	)
-	.query(async ({ input }) => {
+	.query(async ({ ctx, input }) => {
 		const { cursor, limit, videoId } = input;
+		const { id: userId } = ctx.user;
 
 		const data = await db
 			.select({
@@ -44,7 +45,7 @@ export const getManyForVideo = protectedProcedure
 			.innerJoin(users, eq(playlists.userId, users.id))
 			.where(
 				and(
-					eq(playlists.userId, users.id),
+					eq(playlists.userId, userId),
 					cursor
 						? or(
 								lt(playlists.updatedAt, cursor.updatedAt),

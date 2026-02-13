@@ -5,6 +5,8 @@
 		"create_title": "Create a new playlist",
 		"description_default": "Videos you’ve added to this playlist",
 		"description_placeholder": "Provide a short description for your playlist",
+		"load_error": "Failed to load playlists",
+		"load_one_error": "Failed to load playlist",
 		"name_placeholder": "Enter playlist title",
 		"page_description": "Collections you have created",
 		"remove_confirm": "Delete this playlist?",
