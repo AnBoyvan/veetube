@@ -1,14 +1,6 @@
-interface SearchPageProps {
-	searchParams: Promise<{
-		categoryId?: string;
-		query?: string;
-	}>;
-}
 
-const SearchPage = async ({ searchParams }: SearchPageProps) => {
-	const { categoryId, query } = await searchParams;
-
-	return <div>SearchPage</div>;
+const SubscriptionsPage = async () => {
+	return <div>SubscriptionsPage</div>;
 };
 
-export default SearchPage;
+export default SubscriptionsPage;

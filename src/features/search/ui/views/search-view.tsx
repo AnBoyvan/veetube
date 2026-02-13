@@ -12,18 +12,20 @@ import {
 } from '@/features/categories/ui/sections/categories-section';
 
 import {
-	VideosSection,
-	VideosSectionSkeleton,
-} from '../sections/videos-section';
+	ResultsSection,
+	ResultsSectionSkeleton,
+} from '../sections/results-section';
 
-interface HomeViewProps {
+interface SearchViewProps {
+	query?: string;
 	categoryId?: string;
 }
 
-export const HomeView = ({ categoryId }: HomeViewProps) => {
+export const SearchView = ({ query, categoryId }: SearchViewProps) => {
 	const t = useTranslations();
+
 	return (
-		<div className="mx-auto mb-10 flex max-w-[2400px] flex-col gap-y-6 px-4 pt-2.5">
+		<div className="mx-auto mb-10 flex max-w-[1300px] flex-col gap-y-6 px-4 pt-2.5">
 			<Suspense fallback={<CategoriesSectionSkeleton />}>
 				<ErrorBoundary
 					fallback={
@@ -36,7 +38,7 @@ export const HomeView = ({ categoryId }: HomeViewProps) => {
 					<CategoriesSection categoryId={categoryId} />
 				</ErrorBoundary>
 			</Suspense>
-			<Suspense fallback={<VideosSectionSkeleton />}>
+			<Suspense fallback={<ResultsSectionSkeleton />}>
 				<ErrorBoundary
 					fallback={
 						<ErrorState
@@ -45,7 +47,7 @@ export const HomeView = ({ categoryId }: HomeViewProps) => {
 						/>
 					}
 				>
-					<VideosSection categoryId={categoryId} />
+					<ResultsSection query={query} categoryId={categoryId} />
 				</ErrorBoundary>
 			</Suspense>
 		</div>

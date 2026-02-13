@@ -3,8 +3,9 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 import { FilterCarousel } from '@/components/common/filter-carousel';
-import { useCategories } from '@/features/categories/hooks/use-categories';
 import { getTranslated } from '@/i18n/get-translated';
+
+import { useCategories } from '../../hooks/use-categories';
 
 interface CategoriesSectionProps {
 	categoryId?: string;
