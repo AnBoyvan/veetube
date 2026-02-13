@@ -16,10 +16,10 @@ export const HomeSidebar = () => {
 				<MainSection />
 				<Separator />
 				<PersonalSection />
-				{/* <SignedIn>
+				<SignedIn>
 					<Separator />
 					<SubscriptionsSection />
-				</SignedIn> */}
+				</SignedIn>
 			</SidebarContent>
 		</Sidebar>
 	);

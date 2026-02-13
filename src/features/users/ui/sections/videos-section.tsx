@@ -1,3 +1,5 @@
+'use client';
+
 import { InfiniteScroll } from '@/components/common/infinite-scroll';
 import { useVideos } from '@/features/videos/hooks/use-videos';
 import {
@@ -6,17 +8,17 @@ import {
 } from '@/features/videos/ui/components/video-grid-card';
 
 interface VideosSectionProps {
-	categoryId?: string;
+	userId: string;
 }
 
-export const VideosSection = ({ categoryId }: VideosSectionProps) => {
+export const VideosSection = ({ userId }: VideosSectionProps) => {
 	const { data, hasNextPage, isFetchingNextPage, fetchNextPage } = useVideos({
-		categoryId,
+		userId,
 	});
 
 	return (
 		<div>
-			<div className="grid grid-cols-1 gap-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 [@media(min-width:1920px)]:grid-cols-5 [@media(min-width:2200px)]:grid-cols-6">
+			<div className="grid grid-cols-1 gap-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4">
 				{data.pages
 					.flatMap(page => page.items)
 					.map(video => (
@@ -34,7 +36,7 @@ export const VideosSection = ({ categoryId }: VideosSectionProps) => {
 
 export const VideosSectionSkeleton = () => {
 	return (
-		<div className="grid grid-cols-1 gap-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 [@media(min-width:1920px)]:grid-cols-5 [@media(min-width:2200px)]:grid-cols-6">
+		<div className="grid grid-cols-1 gap-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4">
 			{Array.from({ length: 18 }).map((_, idx) => (
 				<VideoGridCardSkeleton key={idx} />
 			))}

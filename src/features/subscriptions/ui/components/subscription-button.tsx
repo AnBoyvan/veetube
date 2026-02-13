@@ -1,10 +1,12 @@
+import type { MouseEventHandler } from 'react';
+
 import { useTranslations } from 'next-intl';
 
 import { Button, type ButtonSize } from '@/components/ui/button';
 import { cn } from '@/lib/utils/cn';
 
 interface SubscriptionButtonProps {
-	onClick: () => void;
+	onClick: MouseEventHandler<HTMLButtonElement>;
 	disabled: boolean;
 	isSubscribed: boolean;
 	className?: string;

@@ -1,6 +1,7 @@
 {
 	"user": {
 		"banner_size": "Image(up to 8MB)",
+		"load_error": "Failed to load user information",
 		"manage_content": "Manage your channel content and videos",
 		"manage_subscriptions": "View and manage all your subscriptions",
 		"my_profile": "My profile",

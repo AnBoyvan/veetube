@@ -30,6 +30,7 @@
 		"subscribers_pl": " subscribers",
 		"subscriptions": "Subscriptions",
 		"subscriptions_all": "All subscriptions",
+		"subscriptions_error": "Failed to load subscriptions",
 		"take_time": "This can take some time",
 		"thumbnail": "Thumbnail",
 		"title": "Title",

@@ -33,7 +33,7 @@ export const VideosSection = () => {
 	return (
 		<div>
 			<div className="border-y">
-				<Table>
+				<Table className="w-full">
 					<TableHeader>
 						<TableRow>
 							<TableHead className="w-[510px] pl-6">
@@ -62,7 +62,7 @@ export const VideosSection = () => {
 										router.push(`/studio/videos/${video.id}`);
 									}}
 								>
-									<TableCell className="pl-6">
+									<TableCell className="max-w-[510px] overflow-hidden pl-6">
 										<div className="flex items-center gap-4">
 											<div className="relative aspect-video w-36 shrink-0">
 												<VideoThumbnail
@@ -72,11 +72,11 @@ export const VideosSection = () => {
 													duration={video.duration}
 												/>
 											</div>
-											<div className="flex flex-col gap-y-1 overflow-hidden">
-												<span className="line-clamp-1 text-sm">
+											<div className="flex min-w-0 flex-col gap-y-1">
+												<span className="line-clamp-1 truncate text-sm">
 													{video.title}
 												</span>
-												<span className="line-clamp-1 text-muted-foreground text-xs">
+												<span className="truncate text-muted-foreground text-xs">
 													{video.description || t('common.no_description')}
 												</span>
 											</div>
