@@ -9,7 +9,8 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { cn } from '@/lib/utils/cn';
 
 import favicon from '../../public/favicon.ico';
-import openGraphImage from '../../public/opengraph-image.png';
+import ogImage from '../../public/opengraph-image.png';
+import twitterImage from '../../public/twitter-image.png';
 import './globals.css';
 
 import { ukUA } from '@/features/auth/localization/uk-UA';
@@ -33,27 +34,49 @@ export const metadata: Metadata = {
 	},
 	title: {
 		default: 'VeeTube',
-		template: 'VeeTube',
+		template: '%s · VeeTube',
 	},
-	description: '',
-	twitter: {
-		card: 'summary_large_image',
-	},
+	description: '', //TODO:
+
+	keywords: [], //TODO:
+	applicationName: 'VeeTube',
+	creator: 'Andrii Boyvan',
 	openGraph: {
-		title: {
-			default: 'VeeTube',
-			template: 'VeeTube',
-		},
+		type: 'website',
+		siteName: 'VeeTube',
+		title: '', //TODO:
+		description: '',
+		url: '/',
 		images: [
 			{
-				url: openGraphImage.src,
+				url: ogImage.src,
+				width: 1200,
+				height: 630,
+				alt: '', //TODO:
 			},
 		],
-		description: '',
-		type: 'website',
-		url: process.env.BASE_URL || '',
-		siteName: 'VeeTube',
 	},
+
+	twitter: {
+		card: 'summary_large_image',
+		title: '', //TODO:
+		description: '', //TODO:
+		images: [twitterImage.src],
+	},
+
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+			'max-video-preview': -1,
+		},
+	},
+
+	category: 'entertainment',
 };
 
 export default async function RootLayout({
