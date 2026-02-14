@@ -14,7 +14,7 @@ export const HomeNavbar = () => {
 			<div className="flex w-full items-center gap-4">
 				<div className="flex flex-shrink-0 items-center">
 					<SidebarTrigger />
-					<Link href="/" className="hidden md:block">
+					<Link prefetch href="/" className="hidden md:block">
 						<div className="flex items-center gap-1 p-4">
 							<Image src="/logo.svg" width={24} height={24} alt={'Logo'} />
 							<p className="font-amarante font-semibold text-xl">VeeTube</p>

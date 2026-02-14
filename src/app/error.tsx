@@ -24,7 +24,9 @@ export default function ErrorPage({
 				{tKey ? t(tKey) : error.message}
 			</p>
 			<Button size="sm" asChild>
-				<Link href="/">{t('actions.back_home')}</Link>
+				<Link prefetch href="/">
+					{t('actions.back_home')}
+				</Link>
 			</Button>
 		</div>
 	);

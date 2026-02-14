@@ -18,7 +18,9 @@ export default function ErrorPage() {
 				{t('general.page_not_found')}
 			</p>
 			<Button size="sm" asChild>
-				<Link href="/">{t('actions.back_home')}</Link>
+				<Link prefetch href="/">
+					{t('actions.back_home')}
+				</Link>
 			</Button>
 		</div>
 	);

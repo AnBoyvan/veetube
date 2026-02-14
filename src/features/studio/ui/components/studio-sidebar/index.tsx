@@ -36,7 +36,11 @@ export const StudioSidebar = () => {
 									asChild
 									isActive={pathname === '/studio'}
 								>
-									<Link href="/studio" className="flex items-center gap-4">
+									<Link
+										prefetch
+										href="/studio"
+										className="flex items-center gap-4"
+									>
 										<VideoIcon />
 										<span className="text-sm">{t('common.content')}</span>
 									</Link>
@@ -45,7 +49,7 @@ export const StudioSidebar = () => {
 							<Separator />
 							<SidebarMenuItem>
 								<SidebarMenuButton tooltip={t('actions.exit_studio')} asChild>
-									<Link href="/" className="flex items-center gap-4">
+									<Link prefetch href="/" className="flex items-center gap-4">
 										<LogOutIcon />
 										<span className="text-sm">{t('actions.exit_studio')}</span>
 									</Link>
