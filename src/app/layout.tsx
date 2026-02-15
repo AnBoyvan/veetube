@@ -36,31 +36,53 @@ export const metadata: Metadata = {
 		default: 'VeeTube',
 		template: '%s · VeeTube',
 	},
-	description: '', //TODO:
+	description:
+		'A modern, full-stack video sharing platform built with Next.js, featuring AI-powered content generation, real-time streaming, and community engagement capabilities.',
 
-	keywords: [], //TODO:
+	keywords: [
+		'Next.js video platform',
+		'Full-stack TypeScript project',
+		'tRPC video application',
+		'Drizzle ORM PostgreSQL',
+		'HLS video streaming platform',
+		'Mux video integration',
+		'AI metadata generation',
+		'AI thumbnail generation',
+		'Creator economy platform',
+		'Scalable media platform architecture',
+		'Video SaaS architecture',
+		'App Router production architecture',
+		'Type-safe backend system',
+		'Video processing workflows',
+		'Redis caching architecture',
+		'Distributed rate limiting',
+		'UGC platform architecture',
+		'Portfolio full-stack project',
+	],
 	applicationName: 'VeeTube',
 	creator: 'Andrii Boyvan',
 	openGraph: {
 		type: 'website',
 		siteName: 'VeeTube',
-		title: '', //TODO:
-		description: '',
+		title: 'VeeTube',
+		description:
+			'A modern, full-stack video sharing platform built with Next.js, featuring AI-powered content generation, real-time streaming, and community engagement capabilities.',
 		url: '/',
 		images: [
 			{
 				url: ogImage.src,
 				width: 1200,
 				height: 630,
-				alt: '', //TODO:
+				alt: 'VeeTube',
 			},
 		],
 	},
 
 	twitter: {
 		card: 'summary_large_image',
-		title: '', //TODO:
-		description: '', //TODO:
+		title: 'VeeTube',
+		description:
+			'A modern, full-stack video sharing platform built with Next.js, featuring AI-powered content generation, real-time streaming, and community engagement capabilities.',
 		images: [twitterImage.src],
 	},
 
